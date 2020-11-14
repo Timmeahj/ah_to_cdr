@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AH to CDR</title>
+</head>
+<body>
+<label for="input">Put AH or CDR in input then convert</label>
+<input type="text" id="input"><br>
+<button id="toHaste">convert to AH</button>
+<button id="toCdr">convert to Cdr</button><br>
+<p id="target"></p>
+<script>
+    document.getElementById('toHaste').addEventListener('click', function (){
+        let cdr = +document.getElementById('input').value;
+        let result = 100*(1/(1-(cdr/100))-1);
+        document.getElementById('target').innerText = cdr+'% cdr = '+result.toString()+' AH';
+    });
+
+    document.getElementById('toCdr').addEventListener('click', function (){
+        let haste = +document.getElementById('input').value;
+        let result = 1-(1/(1+(haste/100)));
+        document.getElementById('target').innerText = haste+' AH = '+result.toString()+'% cdr';
+    });
+</script>
+</body>
+</html>
